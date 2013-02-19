@@ -21,21 +21,7 @@
             	</end>
 
             	<keywords id="Blade Command" casesensitive="yes" useforautocomplete="yes" scope="keyword.control.blade">
-            		<regex>(@foreach)</regex>
-            		<regex>(@endforeach)</regex>
-            		<regex>(@forelse)</regex>
-            		<regex>(@empty)</regex>
-            		<regex>(@endforelse)</regex>
-            		<regex>(@section)</regex>
-            		<regex>(@endsection)</regex>
-            		<regex>(@if)</regex>
-            		<regex>(@else)</regex>
-            		<regex>(@endif)</regex>
-            		<regex>(@unless)</regex>
-            		<regex>(@endunless)</regex>
-            		<regex>(@yield)</regex>
-            		<regex>(@layout)</regex>
-            		<regex>(@parent)</regex>
+            		<regex>(@\S+)</regex>
             	</keywords>
 
             	<state id="Blade Command Arguments" usesymbolsfrommode="PHP-HTML" useautocompleteformmode="PHP-HTML" foldable="yes" scope="meta.control.blade">
