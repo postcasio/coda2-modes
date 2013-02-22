@@ -233,11 +233,11 @@
             </state>
             <state id="PHP" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="yes" scope="meta.block">
                 <begin>
-                    <regex>(?:&lt;\?(?i)php)|(?:&lt;\?(?=[\s=]))|(?:{{)</regex>
+                    <regex>(?:&lt;\?(?i)php)|(?:&lt;\?(?=[\s=]))|(?:{{{?)</regex>
                     <autoend>\?></autoend>
                 </begin>
                 <end>
-                    <regex>(?:\?>)|(?:\Z)|(?:}})</regex>
+                    <regex>(?:\?>)|(?:\Z)|(?:}}}?)</regex>
                 </end>
 
                 <keywords id="PHP Delimiter" useforautocomplete="no" scope="markup.processing.languageswitch.php">
@@ -248,8 +248,8 @@
                 </keywords>
 
                 <keywords id="Laravel Delimeter" useforautocomplete="no" scope="markup.processing.languageswitch.php.blade">
-                    <regex>({{)</regex>
-                    <regex>(}})</regex>
+                    <regex>({{{?)</regex>
+                    <regex>(}}}?)</regex>
                 </keywords>
                 <keywords id="FunctionRegex" useforautocomplete="no" scope="language.function.php">
                     <regex>([A-Za-z0-9_]+) *\(</regex>
