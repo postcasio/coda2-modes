@@ -2,7 +2,6 @@
 <syntax>
 	<head>
 		<name>Blade</name>
-		<!-- The definitions title -->
 		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$"]]></charsintokens>
 		<charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$&lt;/=>!]]></charsincompletion>
 	</head>
@@ -20,7 +19,7 @@
 			</state>
 			<state id="Blade Commands" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="no" scope="meta.block.blade">
 				<begin>
-					<regex>^\s*@</regex>
+					<regex>\s*@(?:\w)</regex>
 				</begin>
 				<end>
 					<regex>(?:[\n\r])</regex>
