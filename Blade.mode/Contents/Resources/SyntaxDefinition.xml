@@ -17,14 +17,6 @@
 					<regex>--}}</regex>
 				</end>
 			</state>
-			<state id="Blade Escaped Braces" scope="meta.default">
-				<begin>
-					<regex>@{{</regex>
-				</begin>
-				<end>
-					<regex>(?:.)</regex>
-				</end>
-			</state>
 			<state id="Blade Commands" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="no" scope="meta.block.blade">
 				<begin>
 					<regex>\s*@(?:\w)</regex>
@@ -247,7 +239,7 @@
 			</state>
 			<state id="PHP" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="yes" scope="meta.block">
 				<begin>
-					<regex>(?:&lt;\?(?i)php)|(?:&lt;\?(?=[\s=]))|(?:{{{?)</regex>
+					<regex>(?:&lt;\?(?i)php)|(?:&lt;\?(?=[\s=]))|(?:(?&lt;!@){{{?)</regex>
 					<autoend>\?&gt;</autoend>
 				</begin>
 				<end>
@@ -3967,6 +3959,8 @@
 					<regex>\]\s*\]\s*&gt;</regex>
 				</end>
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
 			</state>
 			<state id="Doctype" foldable="no" scope="markup.declaration">
 				<begin>
@@ -3984,6 +3978,8 @@
 						<regex>"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
 				</state>
 				<state id="SingleString" type="string" scope="markup.declaration.string.single">
 					<begin>
@@ -3993,6 +3989,8 @@
 						<regex>'</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
 				</state>
 				<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block.square">
 					<begin>
@@ -4005,6 +4003,9 @@
 					<import />
 				</state>
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
+
 			</state>
 			<state id="Escape" foldable="no" scope="markup.processing">
 				<begin>
@@ -4022,6 +4023,9 @@
 						<regex>"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state id="ProcessingSingleString" type="string" scope="markup.processing.attribute.value.string">
 					<begin>
@@ -4031,8 +4035,14 @@
 						<regex>'</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
+
 			</state>
 			<state id="Inline CSS" delimiterState="Tags" usesymbolsfrommode="CSS" useautocompletefrommode="CSS" foldable="yes" indent="yes" scope="meta.block.css">
 				<begin>
@@ -4043,6 +4053,9 @@
 					<regex>&lt;/[\t ]*(?i)style[\t ]*&gt;</regex>
 				</end>
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
+
 				<state id="CSSInside curly brackets" foldable="yes" indent="yes" scope="meta.block.curly">
 					<begin>
 						<string>{</string>
@@ -4061,6 +4074,9 @@
 						</end>
 						<import mode="CSS" state="Attribute state" keywords-only="yes" />
 						<state-link state="PHP" />
+						<state-link state="Blade Comment" />
+						<state-link state="Blade Commands" />
+
 						<state-link state="CSSAutodocComment" />
 						<state-link state="CSSComment" />
 						<state-link state="CSSString" />
@@ -4071,6 +4087,9 @@
 					<state-link state="CSSString" />
 					<state-link state="CSSSingleString" />
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<import keywords-only="yes" />
 				<state id="CSSRules" scope="style.at-rule">
@@ -4109,6 +4128,9 @@
 						<regex>(?&lt;!\\)(\\\\)*"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state id="CSSSingleString" type="string" scope="style.value.string.single">
 					<begin>
@@ -4118,10 +4140,16 @@
 						<regex>(?&lt;!\\)(\\\\)*'</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 			</state>
 			<state id="JavaScript Container" containerState="yes" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.block.js">
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
+
 				<import mode="JavaScript" keywords-only="yes" />
 				<state id="JSAutodocComment" type="comment" foldable="yes" scope="comment.block.documentation.js">
 					<begin>
@@ -4157,6 +4185,9 @@
 						</end>
 					</state>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state id="JSString" type="string" scope="string.double.js">
 					<begin>
@@ -4166,6 +4197,9 @@
 						<regex>(?&lt;!\\)(\\\\)*"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state id="JSSingleString" type="string" scope="string.single.js">
 					<begin>
@@ -4175,6 +4209,9 @@
 						<regex>(?&lt;!\\)(\\\\)*'</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 			</state>
 			<state id="Inline JavaScript" delimiterState="Tags" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" foldable="yes" scope="meta.block.js">
@@ -4231,6 +4268,9 @@
 					<regex>&gt;</regex>
 				</end>
 				<state-link state="PHP" />
+				<state-link state="Blade Comment" />
+				<state-link state="Blade Commands" />
+
 				<state id="Javascript Actions" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.default">
 					<begin>
 						<regex>(?&lt;=[ \t])(?i)on[\w]+[ \t]*=[ \t]*"</regex>
@@ -4258,6 +4298,9 @@
 						<regex>"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 					<state id="Javascript in Links" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.block.js">
 						<begin>
 							<regex>\A[ \t]*(?i)javascript:</regex>
@@ -4289,6 +4332,9 @@
 						<regex>"</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<state id="Single Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 					<begin>
@@ -4298,6 +4344,9 @@
 						<regex>'</regex>
 					</end>
 					<state-link state="PHP" />
+					<state-link state="Blade Comment" />
+					<state-link state="Blade Commands" />
+
 				</state>
 				<keywords id="Attributes in Tags" useforautocomplete="no" scope="markup.tag.attribute.name">
 					<regex>([\w-]*)(?=[ \t]*=)</regex>
