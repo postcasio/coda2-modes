@@ -17,6 +17,14 @@
 					<regex>--}}</regex>
 				</end>
 			</state>
+			<state id="Blade Escaped Braces" scope="meta.default">
+				<begin>
+					<regex>@{{</regex>
+				</begin>
+				<end>
+					<regex>(?:.)</regex>
+				</end>
+			</state>
 			<state id="Blade Commands" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="no" scope="meta.block.blade">
 				<begin>
 					<regex>\s*@(?:\w)</regex>
