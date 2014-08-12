@@ -19,7 +19,7 @@
 			</state>
 			<state id="Blade Commands" usesymbolsfrommode="PHP-HTML" useautocompletefrommode="PHP-HTML" foldable="no" scope="meta.block.blade">
 				<begin>
-					<regex>\s*@(?:\w)</regex>
+					<regex>\B@(?:\w)</regex>
 				</begin>
 				<end>
 					<regex>(?:[\n\r])</regex>
