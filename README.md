@@ -1,7 +1,9 @@
 Coda 2 modes
 ============
 
-Syntax modes for Coda 2.
+Blade syntax mode for Coda 2.
+
+**No longer maintained.**
 
 Blade
 -----
